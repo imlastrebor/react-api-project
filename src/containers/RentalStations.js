@@ -11,18 +11,19 @@
 // }
 // export default RentalStations;
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GET_STATIONS } from "../graphql/get-stations";
 
-const GET_STATIONS = gql`
-  query GetStations {
-    bikeRentalStations {
-      name
-      stationId
-      bikesAvailable
-      spacesAvailable
-    }
-  }
-`;
+// const GET_STATIONS = gql`
+//   query GetStations {
+//     bikeRentalStations {
+//       name
+//       stationId
+//       bikesAvailable
+//       spacesAvailable
+//     }
+//   }
+// `;
 
 export function RentalStations() {
   const { loading, error, data } = useQuery(GET_STATIONS);
@@ -31,10 +32,11 @@ export function RentalStations() {
   if (error) return <p>Error :(</p>;
 
   return data.bikeRentalStations.map((props) => (
-    <div key={props.stationId}>
-      <p>{props.name}</p>
-      <p>{props.bikesAvailable}</p>
-      <p>{props.spacesAvailable}</p>
+    <div key={props.stationId} className="bikeStation">
+      <h4>{props.name}</h4>
+      <p>Pyöriä vapaana: {props.bikesAvailable}</p>
+
+      <p>Vapaita paikkoja: {props.spacesAvailable}</p>
     </div>
   ));
 }

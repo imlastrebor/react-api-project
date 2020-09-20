@@ -37,12 +37,15 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>React project</h1>
-        <h2>Apollo</h2>
+        <header>
+          <h1>HSL Kaupunkipyörät</h1>
+          <h2>Tiedot asemista</h2>
+        </header>
         <ApolloProvider client={client}>
           <main>
-            <p>Here should be data from API</p>
-            <RentalStations />
+            <div className="rentalStations">
+              <RentalStations />
+            </div>
           </main>
         </ApolloProvider>
       </div>
