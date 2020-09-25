@@ -26,18 +26,23 @@ import { GET_STATIONS } from "../graphql/get-stations";
 // `;
 
 export function RentalStations() {
-  const { loading, error, data } = useQuery(GET_STATIONS);
+  //Otetaan käyttöön GET_STATIONS query
+  const { loading, error, data } = useQuery(GET_STATIONS, {
+    //Päivittää grapghql datan haun
+    pollInterval: 5000,
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
   return data.bikeRentalStations.map((props) => (
-    <div key={props.stationId} className="bikeStation">
+    <li key={props.stationId} className="bikeStation">
       <h4>{props.name}</h4>
       <p>Pyöriä vapaana: {props.bikesAvailable}</p>
 
       <p>Vapaita paikkoja: {props.spacesAvailable}</p>
-    </div>
+    </li>
   ));
 }
+
 export default RentalStations;

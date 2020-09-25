@@ -5,7 +5,7 @@ import { createApolloFetch } from "apollo-fetch";
 import BikeStation from "./BikeStations";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { BikesContainer } from "./containers/RentalStations";
+import { BikesContainer } from "./components/RentalStations";
 // import axios from "axios";
 
 //

@@ -1,8 +1,9 @@
 body {
-  background-color: #fcbc19;
+  background-color: rgb(247, 247, 247);
 }
 header {
   padding: 80px 0 50px 0;
+  background-color: #fcbc19;
 }
 .App {
   text-align: center;
@@ -13,6 +14,8 @@ header {
   grid-template-columns: auto auto auto;
   max-width: 1000px;
   margin: auto;
+  margin-top: 50px;
+  list-style: none;
 }
 @media only screen and (max-width: 1000px) {
   .rentalStations {
@@ -25,5 +28,6 @@ header {
   background-color: #fff;
   margin: auto;
   padding: 5px;
-  border-radius: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 }
